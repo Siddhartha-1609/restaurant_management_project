@@ -5,3 +5,14 @@ from django.http import HttpResponse
 
 def homepage(request):
     return HttpResponse(f"Welcome to {settings.RESTAURANT_NAME}")
+
+def about(request):
+    context = {
+        "restaurant_name" : "CHINKI'S",
+        "description" : (
+            "Family-owned restaurant serving fresh, locally sourced food."
+            "We focus on warm hospitality and seasonal menus"
+        ),
+        "image_url" : "https//:images.pexels.com/photos/11236793/pexels-photo-11236793.jpg",
+    }
+    return render(request, 'about.html' , context)
