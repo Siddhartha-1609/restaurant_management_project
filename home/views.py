@@ -4,7 +4,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
-    return HttpResponse(f"Welcome to {settings.RESTAURANT_NAME}")
+    context = {
+        "restaurant_name" : "CHINKI'S"
+    }
+    return render(request,'home.html',context)
 
 def about(request):
     context = {
