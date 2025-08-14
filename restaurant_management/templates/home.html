@@ -44,6 +44,10 @@
                 font-weight: bold;
                 color: #444;
             }
+            .logo{
+                max-width: 200px;
+                margin-bottom: 20px;
+            }
             h1{
                 color: #007bff;
                 margin-bottom: 15px;
@@ -64,6 +68,9 @@
             <a href="{% url 'about' %}">About</a>
         </header>
         <div class="container">
+            <img src="https://www.creativefabrica.com/wp-content/uploads/2019/08/Restaurant-Logo-by-Koko-Store-580x386.jpg"
+                alt="{{ restaurant_name }} logo"
+                class="logo">
             <h1>Welcome to {{restaurant_name}}</h1>
             <p>Enjoy your meals and time here!</p>
             <p class="phone">Call us: {{phone_number}}</p> 
