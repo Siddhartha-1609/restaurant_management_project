@@ -21,7 +21,7 @@ def about(request):
     }
     return render(request, 'about.html' , context)
 
-def contacr(request):
+def contact(request):
     context = {
         "restaurant_name" = settings.RESTAURANT_NAME,
         "restaurant_phone" = settings.RESTAURANT_PHONE,
