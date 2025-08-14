@@ -4,6 +4,13 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
+    try:
+        restaurant_name = getattr(settings,"RESTAURANT_NAME","Our Restaurant")
+        phone_number = getattr(settings,"RESTAURANT_PHONE","Not Available")
+    except Exception as e:
+        print(f"error loading restaunrant info {e}")
+        return HttpResponseServerError("Something went wrong please try again later.")
+    
     context = {
         "restaurant_name" : settings.RESTAURANT_NAME,
         "phone_number" : settings.RESTAURANT_PHONE
