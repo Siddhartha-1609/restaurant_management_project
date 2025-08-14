@@ -131,5 +131,6 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 RESTAURANT_NAME = "CHINKI'S"
-
 RESTAURANT_PHONE = "+91 6302516251"
+RESTAURANT_EMAIL = "contact@chinkis.com"
+RESTAURANT_ADDRESS = "Balanagar, Hyderabad, Telangana"
