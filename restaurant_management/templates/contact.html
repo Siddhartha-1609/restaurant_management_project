@@ -38,4 +38,16 @@
     </head>
     <body>
         <header>
-            <a href="{% url 'homepage' %}"
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+        </header>
+        <div class="container">
+            <h1>Contact us</h1>
+            <p><strong>Restaurant_name:</strong> {{ restaurant_name}}</p>
+            <p><strong>Phone:</strong> {{ restaurant_phone}}</p>
+            <p><strong>Email:</strong> {{restaurant_email}} </p>
+            <p><strong>Address:</strong> {{restaurant_address}} </p>
+        </div>
+    </body>
+</html> 
