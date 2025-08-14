@@ -31,6 +31,14 @@
                 max-width: 100%;
                 border-radius: 5px;
             }
+            footer{
+                background: #343a40;
+                color: #ccc;
+                text-align: center;
+                padding: 10px;
+                font-size: 14px;
+                margin-top: auto;
+            }
         </style>
     </head>
     <body>
@@ -45,5 +53,7 @@
             <p>{{description}}</p>
             <img src="{{ image_url }}" , alt="{{ restaurant_name }} interior">
         </div>
+        <footer>
+            &copy; {% now %}
     </body>
 </html>
