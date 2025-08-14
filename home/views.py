@@ -29,4 +29,10 @@ def contact(request):
         "restaurant_address" = settings.RESTAURANT_ADDRESS,
     }
     return render(request, "contact.html", context)
+
+def reservation(request):
+    context {
+        "restaurant_name" = settings.RESTAURANT_NAME,
+    }
+    return render(request, 'reservation.html' ,context)
     
