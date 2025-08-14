@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menu</title>
+    </head>
+    <body>
+        {% include "partials/header.html" %}
+        <h1>Menu - {{restaurant_name}}</h1>
+        <ul>
+            {%for items in menu_items %}
+                <li>{{item}}</li>
+            {%empty%}
+                <li>No items available</li>
+            {% endfor %}
+        </ul>
+        {% include "partials/footer.html" %}
+    </body>
+</html>
