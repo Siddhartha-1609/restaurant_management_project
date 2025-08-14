@@ -3,3 +3,55 @@
     <head>
         <meta charset="UTF-8">
         <title>Reservation - {{restaurant_name}}</title>
+        <Style>
+            body{
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background: #f9f9f9;
+                color: #333;
+            }
+            header{
+                background: #3498db;
+                padding: 12px;
+                text-align: center;
+            }
+            header a{
+                color: white;
+                text-decoration: none;
+                margin: 0 10px;
+            }
+            header a:hover{
+                text-decoration: underline;
+            }
+            .container{
+                max-width: 600px;
+                margin: 40px auto;
+                padding: 20px;
+                background: white;
+                border-radius: 6px;
+                text-align: center;
+            }
+            h1{
+                color: #007bff;
+                margin-bottom: 10px;
+            }
+            p{
+                font-size: 16px;
+                color: #666;
+            }
+        </Style>
+    </head>
+    <body>
+        <header>
+            <a href="{% url 'homepage' %}">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'reservation'%}">Reservation</a>
+        </header>
+        <div class="container">
+            <h1>Reservations</h1>
+            <p>Online reservations will be available soon!</p>
+        </div>
+    </body>
+</html>
