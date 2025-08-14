@@ -5,7 +5,8 @@ from django.http import HttpResponse
 
 def homepage(request):
     context = {
-        "restaurant_name" : "CHINKI'S"
+        "restaurant_name" : "CHINKI'S",
+        "phone_number" : settings.RESTAURANT_PHONE
     }
     return render(request,'home.html',context)
 
