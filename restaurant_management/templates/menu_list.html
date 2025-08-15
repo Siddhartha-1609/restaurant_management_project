@@ -9,7 +9,10 @@
         <h1>Menu - {{restaurant_name}}</h1>
         <ul>
             {%for items in menu_items %}
-                <li>{{item}}</li>
+                <li>
+                    {{item.name}} - ${{item.price}}
+                    <em>{{item.description}}</em>
+                </li>
             {%empty%}
                 <li>No items available</li>
             {% endfor %}
