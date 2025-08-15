@@ -59,8 +59,6 @@
             <p><strong>Address:</strong> {{restaurant_address}} </p>
         </div>
         <!--footer-->
-        <footer>
-            &copy; {% now "Y" %} {{restaurant_name}} - All Rights Reserved
-        </footer>
+        {% include "partials/footer.html" %}
     </body>
 </html> 
