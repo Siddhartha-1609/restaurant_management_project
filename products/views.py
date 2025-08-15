@@ -9,6 +9,8 @@ from .serializers import ItemSerializer
 '''
 NOTE: Conside this as a reference and follow this same coding structure or format to work on you tasks
 '''
+#for now hardcoded one with simple django temp without API
+
 try:
     from products.models import Menu
 except ImportError:
