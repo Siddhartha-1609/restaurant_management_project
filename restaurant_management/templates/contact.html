@@ -52,7 +52,33 @@
             <p><strong>Phone:</strong> {{ restaurant_phone}}</p>
             <p><strong>Email:</strong> {{restaurant_email}} </p>
             <p><strong>Address:</strong> {{restaurant_address}} </p>
+            <hr>
+
+            <form id="contactForm" onsubmit="return validateForm()">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4"></textarea><br><br>
+
+                <button type="submit">Send</button>
+            </form>
         </div>
+        <script>
+            function validateForm(){
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+
+            if (name == "" || email == ""){
+                alert("Please Fill details!")
+                return false;
+            } 
+            return true;
+        }
+        </script>
         <!--footer-->
         {% include "partials/footer.html" %}
     </body>
