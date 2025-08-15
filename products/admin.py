@@ -8,5 +8,6 @@ class ItemAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
+#Menu model
 admin.site.register(Item,ItemAdmin)
 admin.site.register(Menu)
