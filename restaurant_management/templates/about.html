@@ -42,12 +42,7 @@
         </style>
     </head>
     <body>
-        <header>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'about' %}">About</a>
-            <a href="{% url 'contact' %}">Contact</a>
-            <a href="{% url 'reservation'%}">Reservation</a>
-        </header>
+        {% include "partials/header.html"%}
         <div class="container">
             <h1>About {{restaurant_name}}</h1>
             <p>{{description}}</p>
