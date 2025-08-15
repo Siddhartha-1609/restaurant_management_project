@@ -51,12 +51,7 @@
         </Style>
     </head>
     <body>
-        <header>
-            <a href="{% url 'homepage' %}">Home</a>
-            <a href="{% url 'about' %}">About</a>
-            <a href="{% url 'contact' %}">Contact</a>
-            <a href="{% url 'reservation'%}">Reservation</a>
-        </header>
+        {% include "partials/header.html"%}
         <div class="container">
             <h1>Reservations</h1>
             <p>Online reservations will be available soon!</p>
