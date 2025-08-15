@@ -9,9 +9,23 @@ from .serializers import ItemSerializer
 '''
 NOTE: Conside this as a reference and follow this same coding structure or format to work on you tasks
 '''
+try:
+    from products.models import Menu
+except ImportError:
+    Menu = None
+
 def menu(request):
+    if Menu:
+        menu_items_qs = Menu.objects.all()
+        if menu_items_qs.exists():
+            menu_items = [item.name for item in menu_items_qs]
+        else:
+            menu_items = ["Marga Pizza" , "Peperoni Pizza" , "Ceaser salad" , "Pasta Carbarona"]
+    else:
+        menu_items = ["Marga Pizza", "Peperoni Pizza", "Ceaser salad" , "Pasta Carbarona"]
+    
     context ={
-        "menu_items" : ["Marga Pizza", "Peperoni Pizza","Ceaser salad","Pasta Carbarona"],
+        "menu_items" : ["Marga Pizza", menu_items,
         "restaurant_name" : settings.RESTAURANT_NAME,
     }
     return render(request,"menu_list.html",context)
