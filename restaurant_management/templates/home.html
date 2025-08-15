@@ -54,6 +54,26 @@
                 color: #007bff;
                 margin-bottom: 15px;
             }
+            .search{
+                margin-top:20px;
+            }
+            .search input[type="text"]{
+                padding:8px;
+                width:70%;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+            .search button{
+                padding: 8px 12px;
+                border: none;
+                background: #007bff;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .search button:hover{
+                background: #0056b3;
+            }
             footer{
             background: #343a40;
             color: #ccc;
@@ -80,7 +100,12 @@
             <p>Enjoy your meals and time here!</p>
             <p class="phone">Call us: {{phone_number}}</p> 
         </div>
-        <
+        <div class="search">
+            <form method="GET" action="">
+                <input type="text" name="q" placeholder="Search Menu Items..."/>
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <!-- footer-->
         {% include "partials/footer.html" %}
     </body>
