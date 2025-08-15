@@ -86,12 +86,7 @@
     </head>
     <body>
         <!--this is the basic template for homepage with css and styling-->
-        <header>
-            <a href="{% url 'homepage' %}">Home</a>
-            <a href="{% url 'about' %}">About</a>
-            <a href="{% url 'contact'%}">Contact</a>
-            <a href="{% url 'reservation' %}">Reservation</a>
-        </header>
+        {% include "partials/header.html"%}
         <div class="container">
             <img src="https://www.creativefabrica.com/wp-content/uploads/2019/08/Restaurant-Logo-by-Koko-Store-580x386.jpg"
                 alt="{{ restaurant_name }} logo"
