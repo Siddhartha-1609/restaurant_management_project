@@ -11,8 +11,8 @@ NOTE: Conside this as a reference and follow this same coding structure or forma
 '''
 def menu(request):
     context ={
-        "menu_items" = ["Marga Pizza", "Peperoni Pizza","Ceaser salad","Pasta Carbarona"],
-        "restaurant_name" = settings.RESTAURANT_NAME,
+        "menu_items" : ["Marga Pizza", "Peperoni Pizza","Ceaser salad","Pasta Carbarona"],
+        "restaurant_name" : settings.RESTAURANT_NAME,
     }
     return render(request,"menu_list.html",context)
 
