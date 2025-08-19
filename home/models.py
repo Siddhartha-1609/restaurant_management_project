@@ -2,10 +2,18 @@ from django.db import models
 
 # Create your models here.
 class Feedback(models.Model):
-    name = models.CharField(max_lenght = 100)
+    name = models.CharField(max_length = 100)
     email = models.EmailField()
     comments = models.TextField()
     created_at = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return f"Feedback from {self.name} ({self.email})"
+
+class Contact(models.Model):
+    name = models.CharField(max_length = 100)
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add = True)
+
+    def __str__(self):
+        return self.name
