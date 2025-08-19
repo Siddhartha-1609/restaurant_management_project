@@ -1,38 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <!-- imported name from settings-->
-        <title>{{settings.RESTAURANT_NAME}}</title>
-        <!-- basic + little more css-->
-        <!-- font style everything is addded to the template-->
-        <style>
-            *{
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body{
-                font-family: Arial ,sans-serif;
-                background-color: #f9f9f9;
-                color: #333;
-                line-height: 1.6;
-            }
-            header{
-                background: #3498db;
-                padding: 15px 20px;
-                text-align: center;    
-            }
-            header a{
-                color: #fff;
-                text-decoration: none;
-                margin: 0 15px;
-                font-weight: 500;
-            }
-            header a:hover{
-                text-decoration: underline;    
-            }
-            .container{
+<head>
+    <meta charset="UTF-8">
+    <title>{{ settings.RESTAURANT_NAME }}</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: #3498db;
+            padding: 15px 20px;
+            text-align: center;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        header a:hover { text-decoration: underline; }
+        .container {
             max-width: 800px;
             margin: 40px auto;
             padding: 20px;
@@ -40,69 +31,81 @@
             border-radius: 6px;
             text-align: center;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            }
-            .phone{
-                font-size: 1.1em;
-                margin-top: 10px;
-                font-weight: bold;
-                color: #444;
-            }
-            .logo{
-                max-width: 200px;
-                margin-bottom: 20px;
-            }
-            h1{
-                color: #007bff;
-                margin-bottom: 15px;
-            }
-            .search{
-                margin-top:20px;
-            }
-            .search input[type="text"]{
-                padding:8px;
-                width:70%;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-            .search button{
-                padding: 8px 12px;
-                border: none;
-                background: #007bff;
-                color: white;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            .search button:hover{
-                background: #0056b3;
-            }
-            footer{
-            background: #343a40;
-            color: #ccc;
-            text-align: center;
+        }
+        .phone { font-size: 1.1em; margin-top: 10px; font-weight: bold; color: #444; }
+        .logo { max-width: 200px; margin-bottom: 20px; }
+        h1 { color: #007bff; margin-bottom: 15px; }
+        .search { margin-top:20px; }
+        .search input[type="text"] {
+            padding:8px; width:70%; border: 1px solid #ccc; border-radius: 4px;
+        }
+        .search button {
+            padding: 8px 12px; border: none; background: #007bff; color: white;
+            border-radius: 4px; cursor: pointer;
+        }
+        .search button:hover { background: #0056b3; }
+        footer {
+            background: #343a40; color: #ccc; text-align: center;
+            padding: 10px; font-size: 14px; margin-top: auto;
+        }
+        .contact-form {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .contact-form h2 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-form input, .contact-form textarea {
             padding: 10px;
-            font-size: 14px;
-            margin-top: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <!--this is the basic template for homepage with css and styling-->
-        {% include "partials/header.html"%}
-        <div class="container">
-            <img src="https://www.creativefabrica.com/wp-content/uploads/2019/08/Restaurant-Logo-by-Koko-Store-580x386.jpg"
-                alt="{{ restaurant_name }} logo"
-                class="logo">
-            <h1>Welcome to {{restaurant_name}}</h1>
-            <p>Enjoy your meals and time here!</p>
-            <p class="phone">Call us: {{phone_number}}</p> 
-        </div>
-        <div class="search">
-            <form method="GET" action="">
-                <input type="text" name="q" placeholder="Search Menu Items..."/>
-                <button type="submit">Search</button>
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    {% include "partials/header.html" %}
+    <div class="container">
+        <img src="https://www.creativefabrica.com/wp-content/uploads/2019/08/Restaurant-Logo-by-Koko-Store-580x386.jpg"
+             alt="{{ restaurant_name }} logo" class="logo">
+        <h1>Welcome to {{ restaurant_name }}</h1>
+        <p>Enjoy your meals and time here!</p>
+        <p class="phone">Call us: {{ phone_number }}</p> 
+
+        <!-- ✅ Contact Form Section -->
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Submit</button>
             </form>
         </div>
-        <!-- footer-->
-        {% include "partials/footer.html" %}
-    </body>
-</html> 
+    </div>
+
+    <div class="search">
+        <form method="GET" action="">
+            <input type="text" name="q" placeholder="Search Menu Items..."/>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% include "partials/footer.html" %}
+</body>
+</html>
