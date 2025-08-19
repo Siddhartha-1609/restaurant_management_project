@@ -15,6 +15,19 @@ def homepage(request):
         "restaurant_name" : settings.RESTAURANT_NAME,
         "phone_number" : settings.RESTAURANT_PHONE
     }
+     if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")
+    else:
+        form = ContactForm()
+
+    context = {
+        "restaurant_name": restaurant_name,
+        "phone_number": phone_number,
+        "form": form,   # pass form to template
+    }
     return render(request,'home.html',context)
 
 def about(request):
@@ -51,4 +64,5 @@ def feedback_view(request):
             return render(request, 'home/feedback_thanks.html')
     else:
         form = FeedbackForm()
+
     return render(request, 'home.feedback.html',{'form': form})        
