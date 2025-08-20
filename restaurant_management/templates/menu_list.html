@@ -10,6 +10,12 @@
         <h1>Menu - {{restaurant_name}}</h1>
         <ul>
             {%for items in menu_items %}
+            <div class="menu-item">
+                {% if item.image %}
+                    <img src="{{ item.image.url }}" alt="{{ item.name }}" width="200">
+                {% else %}
+                    <img src="{% static 'images/placeholder.png'%}" alt="no image" width="200">
+                {% end if %}
                 <li>
                     {{item.name}} - ${{item.price}}
                     <em>{{item.description}}</em>
