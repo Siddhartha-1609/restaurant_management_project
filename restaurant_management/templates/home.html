@@ -112,7 +112,11 @@
         </div>
         <div class="contact-info" style="margin-top:40px; text-align:center;">
             <h2>Find us</h2>
-            <p><strong>Address:</strong>{{ restaurant_address}}</p>
+            {%if location %}
+                <p><strong>Address:</strong>{{location.address}} {{location.city}} {{location.state}} {{location.zip_code}}</p>
+            {% else %}
+                <p><em>Address not available</em></p>
+            {% endif %}
 
             <div style="margin-top:15px;">
                 <iframe
