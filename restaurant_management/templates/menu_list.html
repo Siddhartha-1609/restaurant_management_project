@@ -15,7 +15,7 @@
                     <img src="{{ item.image.url }}" alt="{{ item.name }}" width="200">
                 {% else %}
                     <img src="{% static 'images/placeholder.png'%}" alt="no image" width="200">
-                {% end if %}
+                {% endif %}
                 <li>
                     {{item.name}} - ${{item.price}}
                     <em>{{item.description}}</em>
@@ -28,3 +28,4 @@
         {% include "partials/footer.html" %}
     </body>
 </html>
+
