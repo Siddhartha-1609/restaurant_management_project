@@ -134,6 +134,8 @@ RESTAURANT_NAME = "CHINKI'S"
 RESTAURANT_PHONE = "+91 6302516251"
 RESTAURANT_EMAIL = "contact@chinkis.com"
 RESTAURANT_ADDRESS = "Balanagar, Hyderabad, Telangana"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_MAIL = "noreply@myrestaurant.com"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
