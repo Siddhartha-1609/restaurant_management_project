@@ -4,6 +4,11 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
+    query = request.GET.get("q", "")
+    if query:
+        menu_items = MenuItem.objects.filter(name__icontains=quer)
+    else:
+        menu_items = MenuItem.objects.all()
     try:
         restaurant_name = getattr(settings,"RESTAURANT_NAME","Our Restaurant")
         phone_number = getattr(settings,"RESTAURANT_PHONE","Not Available")
@@ -28,6 +33,7 @@ def homepage(request):
             "restaurant_name" : settings.RESTAURANT_NAME,
             "phone_number" : settings.RESTAURANT_PHONE,
             "form" : form,
+            "query" : query
         }
     return render(request,'home.html',context)
 
