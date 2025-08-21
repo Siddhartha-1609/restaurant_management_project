@@ -66,3 +66,28 @@ def feedback_view(request):
     else:
         form = FeedbackForm()
     return render(request, 'home.feedback.html',{'form': form})        
+
+def contact_view(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            contact = form.save()
+
+            subject = f"new contact form submission from {contact.name}"
+            message = f"""
+            you have a new contact form submission
+            name : {contact.name}
+            email : {contact.email}
+            message : {contact.message}
+            """
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.RESTAURANT_EMAIL],
+                fail_silently = False
+            )
+            return redirect("contact")
+    else:
+        form = ContactForm()
+    return render(request,"contact.html",context)
