@@ -23,9 +23,10 @@ def homepage(request):
     context = {
         "restaurant_name" : settings.RESTAURANT_NAME,
         "phone_number" : restaurant.phone_number if restaurant else "not available",
-        "location" : location
-        "cart_count" : cart_count
-    }
+        "location" : location,
+        "cart_count" : cart_count,
+        "logo" : restaurant.logo.ur if restaurant and restaurant_logo else None,
+    } 
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
