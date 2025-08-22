@@ -4,6 +4,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
+    cart = request.session.get("cart",{})
+    cart_count = sum(cart.values)
     restaurant = Restaurant.objects.first()
     query = request.GET.get("q", "")
     if query:
@@ -22,6 +24,7 @@ def homepage(request):
         "restaurant_name" : settings.RESTAURANT_NAME,
         "phone_number" : restaurant.phone_number if restaurant else "not available",
         "location" : location
+        "cart_count" : cart_count
     }
     if request.method == 'POST':
         form = ContactForm(request.POST)
