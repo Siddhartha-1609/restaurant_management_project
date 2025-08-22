@@ -77,6 +77,12 @@
                 alert("Please Fill details!")
                 return false;
             } 
+            let emailpattern = /^[^\s@]+@[^\s@].[^\s@]+$;
+            if (!emailpattern.test(email)){
+                alert("Emtervalid email")
+                return false;
+            }
+
             return true;
         }
         </script>
