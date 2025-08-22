@@ -4,6 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def homepage(request):
+    restaurant = Restaurant.objects.first()
     query = request.GET.get("q", "")
     if query:
         menu_items = MenuItem.objects.filter(name__icontains=quer)
@@ -19,7 +20,7 @@ def homepage(request):
     
     context = {
         "restaurant_name" : settings.RESTAURANT_NAME,
-        "phone_number" : settings.RESTAURANT_PHONE,
+        "phone_number" : restaurant.phone_number if restaurant else "not available",
         "location" : location
     }
     if request.method == 'POST':
