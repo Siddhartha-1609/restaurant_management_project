@@ -101,3 +101,9 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request,"contact.html",context)
+
+def add_to_cart(request, item_id):
+    cart = request.session.get("cart",{})
+    cart[str(item_id)] = cart.get(str(item_id),0)+1
+    request.session["cart"] = cart
+    return redirect("homepage")
