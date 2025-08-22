@@ -89,9 +89,11 @@
         <!--this is the basic template for homepage with css and styling-->
         {% include "partials/header.html"%}
         <div class="container">
-            <img src="https://www.creativefabrica.com/wp-content/uploads/2019/08/Restaurant-Logo-by-Koko-Store-580x386.jpg"
-                alt="{{ restaurant_name }} logo"
-                class="logo">
+            {% if logo %}
+                <img src="{{ logo }}" alt="{{ restaurant_name }}" class="logo">
+            {% else %}
+                <p>[No logo available]</p>
+            {% endif %}
             <h1>Welcome to {{restaurant_name}}</h1>
             <p>Enjoy your meals and time here!</p>
             <p class="phone">Call us: {{phone_number}}</p> 
