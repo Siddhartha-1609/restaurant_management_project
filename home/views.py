@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.config import settings 
 from django.http import HttpResponse
 # Create your views here.
+#taken from model
 
 def homepage(request):
     cart = request.session.get("cart",{})
