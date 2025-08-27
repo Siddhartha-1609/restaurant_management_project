@@ -125,3 +125,6 @@ def faq(request):
          "answer" : "Yes, we have a wide  variety of vegetarian dishes available"},
     ]
     return render(request, "faqs.html",{"faqs": faqs})
+
+def privacy_policy(request):
+    return render(request,"privacy.html")
