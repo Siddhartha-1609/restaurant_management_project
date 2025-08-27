@@ -81,6 +81,19 @@
                 color: #555;
                 margin-bottom:20px;
             }
+            .datetime{
+                margin-top:20px;
+                padding:12px;
+                background: #f1f1f1;
+                border-radius:6px;
+                text-align: center;
+                font-size: 1em;
+                color: #333;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            }
+            .datetime strong{
+                color: #007bff;
+            }
             footer{
             background: #343a40;
             color: #ccc;
@@ -103,6 +116,9 @@
             <h1>Welcome to {{restaurant_name}}</h1>
             <p class="tagline">Where every bite tells a story!</p>
             <p class="phone">Call us: {{phone_number}}</p> <!-- taken from views-->
+            <div class="datetime">
+                <p><strong>Date & Time:</strong> {{current_time|date:"l, F j, Y - h:i A"}}</p>
+            </div>
         </div>
         <div class="search">
             <form method="GET" action="">
