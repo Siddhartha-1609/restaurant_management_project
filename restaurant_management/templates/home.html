@@ -75,6 +75,12 @@
             .search button:hover{
                 background: #0056b3;
             }
+            .tagline{
+                font-size: 1.2em;
+                font-style: italic;
+                color: #555;
+                margin-bottom:20px;
+            }
             footer{
             background: #343a40;
             color: #ccc;
@@ -95,7 +101,7 @@
                 <p>[No logo available]</p>
             {% endif %}
             <h1>Welcome to {{restaurant_name}}</h1>
-            <p>Enjoy your meals and time here!</p>
+            <p class="tagline">Where every bite tells a story!</p>
             <p class="phone">Call us: {{phone_number}}</p> <!-- taken from views-->
         </div>
         <div class="search">
