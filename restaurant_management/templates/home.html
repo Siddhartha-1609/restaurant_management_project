@@ -125,6 +125,26 @@
             .datetime strong{
                 color: #007bff;
             }
+            .order-now{
+                margin-top: 25px;
+                text-align: center;
+            }
+            .order-btn{
+                display: inline-block;
+                padding:14px 28px;
+                background: #3498db;
+                color: white;
+                font-size: 1.23em;
+                font-weight: bold;
+                border-radius: 6px;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                transition: background 0.3s, transform 0.2s;
+            }
+            .order-btn:hover{
+                background: #217dbb;
+                transform: scale(1.05);
+            }
             footer{
             background: #343a40;
             color: #ccc;
@@ -150,6 +170,9 @@
             <div class="datetime">
                 <p><strong>Date & Time:</strong> {{current_time|date:"l, F j, Y - h:i A"}}</p>
             </div>
+        </div>
+        <div class="order-now">
+            <a href="{%url 'order'%}" class="order-btn">Order Now</a>
         </div>
         <div class="login-box">
             {% if user.is_authenticated %}
