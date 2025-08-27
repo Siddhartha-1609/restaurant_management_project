@@ -112,3 +112,16 @@ def add_to_cart(request, item_id):
     cart[str(item_id)] = cart.get(str(item_id),0)+1
     request.session["cart"] = cart
     return redirect("homepage")
+
+def faq(request):
+    faqs = [
+        {"question":"What are your opening hours?",
+         "answer":"We are daily open from 10:00 AM to 10:00 PM."},
+        {"question":"Do you offer home delivery?",
+         "answer" : "Yes, we provide delivery within 5km radius."},
+        {"question": "Can I reserve a table?",
+         "answer" : "Absolutely! Call us at the number listed on our homepage to reserve a table"},
+        {"question": "Do you have vegetarian options?",
+         "answer" : "Yes, we have a wide  variety of vegetarian dishes available"},
+    ]
+    return render(request, "faqs.html",{"faqs": faqs})
