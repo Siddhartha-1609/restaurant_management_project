@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from django.config import settings 
 from django.http import HttpResponse
+from django.utils import timezone
 # Create your views here.
 #taken from model
 
 def homepage(request):
+
     cart = request.session.get("cart",{})
     cart_count = sum(cart.values)
     restaurant = Restaurant.objects.first()
@@ -20,13 +22,14 @@ def homepage(request):
     except Exception as e:
         print(f"error loading restaunrant info {e}")
         return HttpResponseServerError("Something went wrong please try again later.")
-    
+    current_time = timezone.now()
     context = {
         "restaurant_name" : settings.RESTAURANT_NAME,
         "phone_number" : restaurant.phone_number if restaurant else "not available",
         "location" : location,
         "cart_count" : cart_count,
         "logo" : restaurant.logo.ur if restaurant and restaurant_logo else None,
+        "current_time" : current_time,
     } 
     if request.method == 'POST':
         form = ContactForm(request.POST)
