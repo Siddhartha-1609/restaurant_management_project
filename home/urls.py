@@ -12,4 +12,5 @@ urlpatterns = [
     path("login/",auth_views.LoginView.as_view(template_name="home.html"),name="login"),
     path("logout/",auth_views.LogoutView.as_view(next_page="homepage"),name="logout"),
     path("privacy/",views.privacy_policy,name="privacy"),
+    path("order/",views.order,name="order"),
 ]
