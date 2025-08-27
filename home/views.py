@@ -2,11 +2,11 @@ from django.shortcuts import render
 from django.config import settings 
 from django.http import HttpResponse
 from django.utils import timezone
+import random
 # Create your views here.
 #taken from model
 
 def homepage(request):
-
     cart = request.session.get("cart",{})
     cart_count = sum(cart.values)
     restaurant = Restaurant.objects.first()
@@ -131,3 +131,9 @@ def privacy_policy(request):
 
 def order(request):
     return render(request,"oder.html")
+
+def order_confirmation(request):
+    order_number = random.randint(1000,9999)
+    return render(request,"order_confirmation.html",{
+        "order_number" : order_number
+    })
