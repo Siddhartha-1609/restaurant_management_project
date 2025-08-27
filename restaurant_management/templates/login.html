@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        {% if form.errors %}
+            <p style="color:red;">Invalid username or password. Please Try again</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ from.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <p><a href="{% url 'homepage'%}">Back to homepage</a></p>
+    </body>
+</html>
