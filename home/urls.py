@@ -13,4 +13,5 @@ urlpatterns = [
     path("logout/",auth_views.LogoutView.as_view(next_page="homepage"),name="logout"),
     path("privacy/",views.privacy_policy,name="privacy"),
     path("order/",views.order,name="order"),
+    path("order/confirmation/",views.order_confirmation,name = "order_confirmation"),
 ]
