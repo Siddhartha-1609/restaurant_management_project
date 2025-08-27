@@ -128,3 +128,6 @@ def faq(request):
 
 def privacy_policy(request):
     return render(request,"privacy.html")
+
+def order(request):
+    return render(request,"oder.html")
