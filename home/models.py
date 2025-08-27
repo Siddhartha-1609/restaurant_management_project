@@ -27,7 +27,7 @@ class RestaurantLocation(models.Model):
 
     def __str__(self):
         return f"{self.address},{self.city},{self.state},{self.zip_code}" 
-
+#phone number from model
 class Restaurant(models.Model):
     name = models.CharField(max_length=255)
     address = models.CharField()
