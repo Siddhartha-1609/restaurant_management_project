@@ -1,6 +1,7 @@
 from django import forms
 from .models import Feedback,Contact
 
+#feedback
 class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
