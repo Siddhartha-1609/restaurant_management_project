@@ -173,6 +173,21 @@
                 <p><strong>Date & Time:</strong> {{current_time|date:"l, F j, Y - h:i A"}}</p>
             </div>
         </div>
+        <div class="container" style="margin-top:30px;">
+            <h2>Today's special</h2>
+            {% if specials %}
+                <ul>
+                    {% for item in specials %}
+                        <li>
+                            <strong>{{item.item_name}}</strong> - ${{item.item_price}}<br>
+                            <em>{{item.description}}</em>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No specials for today. Please check back tommorow</p>
+            {% endif %}
+        </div>
         <div class="order-now">
             <a href="{%url 'order'%}" class="order-btn">Order Now</a>
         </div>
