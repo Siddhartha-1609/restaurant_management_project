@@ -74,7 +74,8 @@ def reservation(request):
         "restaurant_name" = settings.RESTAURANT_NAME,
     }
     return render(request, 'reservation.html' ,context)
-    
+
+#feedback
 def feedback_view(request):
     if request.method == "POST":
         form = FeedbackForm(request.POST)
