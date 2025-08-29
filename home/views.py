@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.config import settings 
 from django.http import HttpResponse
 from django.utils import timezone
 import random
+from .models import MenuItem
 # Create your views here.
 #taken from model
 
@@ -110,7 +111,7 @@ def contact_view(request):
     else:
         form = ContactForm()
     return render(request,"contact.html",context)
-
+#cart
 def add_to_cart(request, item_id):
     cart = request.session.get("cart",{})
     cart[str(item_id)] = cart.get(str(item_id),0)+1
@@ -141,3 +142,4 @@ def order_confirmation(request):
     return render(request,"order_confirmation.html",{
         "order_number" : order_number
     })
+
