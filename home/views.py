@@ -13,6 +13,7 @@ def homepage(request):
     restaurant = Restaurant.objects.first()
     query = request.GET.get("q", "")
     specials = Special.objects.filter(created_at=timezone.now().date())
+    opening_hours = settings.RESTAURANT_OPENING_HOURS
     if query:
         menu_items = MenuItem.objects.filter(name__icontains=quer)
     else:
@@ -34,6 +35,7 @@ def homepage(request):
         "current_time" : current_time,
         "query" : query,
         "specials" : specials,
+        "opening_hours" : opening_hours,
     } 
     if request.method == 'POST':
         form = ContactForm(request.POST)
