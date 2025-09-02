@@ -136,6 +136,14 @@ RESTAURANT_EMAIL = "contact@chinkis.com"
 RESTAURANT_ADDRESS = "Balanagar, Hyderabad, Telangana"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_MAIL = "noreply@myrestaurant.com"
-
+RESTAURANT_OPENING_HOURS={
+    "Monday" : "9am - 10pm",
+    "Tuesday" : "9am - 10pm",
+    "Wednesday" : "9am - 10pm",
+    "Thursday" : "9am - 10pm",
+    "Friday" : "9am - 10pm",
+    "Saturday" : "2pm - 3am",
+    "Sunday" : "2pm - 3am"
+}
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
